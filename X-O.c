@@ -131,6 +131,7 @@ int main(int argc, char *argv[])
         while(n==t[0] || n==t[1] || n==t[2] || n==t[3] || n==t[4] || n==t[5] || n==t[6] || n==t[7] || n==t[8])
         {
             scanf("%d", &n);
+			if (n==t[0] || n==t[1] || n==t[2] || n==t[3] || n==t[4] || n==t[5] || n==t[6] || n==t[7] || n==t[8]) printf("*donner un nombre qui n'est pas encore choisi*\n");
         }
         t[j]=n; j++;
         switch(n)
@@ -154,6 +155,7 @@ int main(int argc, char *argv[])
         while(n==t[0] || n==t[1] || n==t[2] || n==t[3] || n==t[4] || n==t[5] || n==t[6] || n==t[7] || n==t[8])
         {
             scanf("%d", &n);
+			if (n==t[0] || n==t[1] || n==t[2] || n==t[3] || n==t[4] || n==t[5] || n==t[6] || n==t[7] || n==t[8]) printf("*donner un nombre qui n'est pas encore choisi*\n");
         }
         t[j]=n; j++;
         switch(n)

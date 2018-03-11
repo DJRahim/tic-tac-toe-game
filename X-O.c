@@ -113,7 +113,7 @@ int Owin(char mat[9])
 
 int main(int argc, char *argv[])
 {
-    char mat[9], nom1[20], nom2[20], c; int n, i, z, j, k, nb1, nb2, nb3, t[9]; nb1=0; nb2=0; nb3=0;
+    char mat[9], nom1[20], nom2[20], c; int n, i, z, p, j, k, nb1, nb2, nb3, t[9]; nb1=0; nb2=0; nb3=0; p=1;
     printf("donner le nom du premier joureur (O) \n");
     fgets(nom1, sizeof(nom1), stdin);
     printf("donner le nom du deuxième joureur (X) \n");
@@ -127,11 +127,13 @@ int main(int argc, char *argv[])
     printf("%c | %c | %c\n", mat[6], mat[7], mat[8]);
     do
     {
+		if(p==1)
+	{
         printf("C'est le tour de %s", nom1);
-        while(n==t[0] || n==t[1] || n==t[2] || n==t[3] || n==t[4] || n==t[5] || n==t[6] || n==t[7] || n==t[8])
+        while(n==t[0] || n==t[1] || n==t[2] || n==t[3] || n==t[4] || n==t[5] || n==t[6] || n==t[7] || n==t[8] || n<1 || n>9)
         {
             scanf("%d", &n);
-			if (n==t[0] || n==t[1] || n==t[2] || n==t[3] || n==t[4] || n==t[5] || n==t[6] || n==t[7] || n==t[8]) printf("*donner un nombre qui n'est pas encore choisi*\n");
+			if (n==t[0] || n==t[1] || n==t[2] || n==t[3] || n==t[4] || n==t[5] || n==t[6] || n==t[7] || n==t[8] || n<1 || n>9) printf("*donner un nombre qui n'est pas encore choisi*\n");
         }
         t[j]=n; j++;
         switch(n)
@@ -149,13 +151,14 @@ int main(int argc, char *argv[])
         printf("%c | %c | %c\n", mat[0], mat[1], mat[2]); printf("---------\n");
         printf("%c | %c | %c\n", mat[3], mat[4], mat[5]); printf("---------\n");
         printf("%c | %c | %c\n", mat[6], mat[7], mat[8]);
+	}
         if (Owin(mat)!=1 && j!=9)
         {
         printf("C'est le tour de %s", nom2);
-        while(n==t[0] || n==t[1] || n==t[2] || n==t[3] || n==t[4] || n==t[5] || n==t[6] || n==t[7] || n==t[8])
+        while(n==t[0] || n==t[1] || n==t[2] || n==t[3] || n==t[4] || n==t[5] || n==t[6] || n==t[7] || n==t[8] || n<1 || n>9)
         {
             scanf("%d", &n);
-			if (n==t[0] || n==t[1] || n==t[2] || n==t[3] || n==t[4] || n==t[5] || n==t[6] || n==t[7] || n==t[8]) printf("*donner un nombre qui n'est pas encore choisi*\n");
+			if (n==t[0] || n==t[1] || n==t[2] || n==t[3] || n==t[4] || n==t[5] || n==t[6] || n==t[7] || n==t[8] || n<1 || n>9) printf("*donner un nombre qui n'est pas encore choisi*\n");
         }
         t[j]=n; j++;
         switch(n)
@@ -173,7 +176,7 @@ int main(int argc, char *argv[])
         printf("%c | %c | %c\n", mat[0], mat[1], mat[2]); printf("---------\n");
         printf("%c | %c | %c\n", mat[3], mat[4], mat[5]); printf("---------\n");
         printf("%c | %c | %c\n", mat[6], mat[7], mat[8]);
-        }
+        } p=1;
     }while(Xwin(mat)!=1 && Owin(mat)!=1 && j!=9);
     if (Owin(mat)==1) 
     {
@@ -201,6 +204,6 @@ int main(int argc, char *argv[])
         case 2: printf("%d matchs gagnés par %s", nb1, nom1); printf("%d matchs gagnés par %s", nb2, nom2); printf("%d matchs nuls\n\n", nb3); break;
         case 3: exit(0); break;
     }
-    }while(z!=1);
+    }while(z!=1); if ((nb1+nb2+nb3)%2==1) p=-1;
     }
 }

@@ -195,7 +195,7 @@ int main(int argc, char *argv[])
     }
     do
     {
-    printf("si vous voulez jouer une autre parie entrez 1\n");
+    printf("si vous voulez jouer une autre partie entrez 1\n");
     printf("si vous voulez afficher le resultat entrez 2\n");
     printf("si vous voulez quitter entrez 3\n");
     scanf("%d", &z);

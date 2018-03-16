@@ -114,9 +114,9 @@ int Owin(char mat[9])
 int main(int argc, char *argv[])
 {
     char mat[9], nom1[20], nom2[20], c; int n, i, z, p, j, k, nb1, nb2, nb3, t[9]; nb1=0; nb2=0; nb3=0; p=1;
-    printf("donner le nom du premier joureur (O) \n");
+    printf("type the name of the first player (O) \n");
     fgets(nom1, sizeof(nom1), stdin);
-    printf("donner le nom du deuxième joureur (X) \n");
+    printf("type the name of the second player (X) \n");
     fgets(nom2, sizeof(nom2), stdin);
     while(1)
     {
@@ -129,11 +129,11 @@ int main(int argc, char *argv[])
     {
 		if(p==1)
 	{
-        printf("C'est le tour de %s", nom1);
+        printf("It's the turn of %s", nom1);
         while(n==t[0] || n==t[1] || n==t[2] || n==t[3] || n==t[4] || n==t[5] || n==t[6] || n==t[7] || n==t[8] || n<1 || n>9)
         {
             scanf("%d", &n);
-			if (n==t[0] || n==t[1] || n==t[2] || n==t[3] || n==t[4] || n==t[5] || n==t[6] || n==t[7] || n==t[8] || n<1 || n>9) printf("*donner un nombre qui n'est pas encore choisi*\n");
+			if (n==t[0] || n==t[1] || n==t[2] || n==t[3] || n==t[4] || n==t[5] || n==t[6] || n==t[7] || n==t[8] || n<1 || n>9) printf("*write a correct number*\n");
         }
         t[j]=n; j++;
         switch(n)
@@ -154,11 +154,11 @@ int main(int argc, char *argv[])
 	}
         if (Owin(mat)!=1 && j!=9)
         {
-        printf("C'est le tour de %s", nom2);
+        printf("It's the turn of %s", nom2);
         while(n==t[0] || n==t[1] || n==t[2] || n==t[3] || n==t[4] || n==t[5] || n==t[6] || n==t[7] || n==t[8] || n<1 || n>9)
         {
             scanf("%d", &n);
-			if (n==t[0] || n==t[1] || n==t[2] || n==t[3] || n==t[4] || n==t[5] || n==t[6] || n==t[7] || n==t[8] || n<1 || n>9) printf("*donner un nombre qui n'est pas encore choisi*\n");
+			if (n==t[0] || n==t[1] || n==t[2] || n==t[3] || n==t[4] || n==t[5] || n==t[6] || n==t[7] || n==t[8] || n<1 || n>9) printf("*write a correct number*\n");
         }
         t[j]=n; j++;
         switch(n)
@@ -180,28 +180,28 @@ int main(int argc, char *argv[])
     }while(Xwin(mat)!=1 && Owin(mat)!=1 && j!=9);
     if (Owin(mat)==1) 
     {
-        printf("le gagnant est %s\n", nom1); nb1=nb1+1;
+        printf("the winner is %s\n", nom1); nb1=nb1+1;
     }
     else
     {
         if (Xwin(mat)==1) 
         {
-            printf("le gagnant est %s\n", nom2); nb2=nb2+1;
+            printf("the winner is %s\n", nom2); nb2=nb2+1;
         }
         else 
         {
-            printf("c'est un match nul\n\n"); nb3=nb3+1;
+            printf("it's a draw\n\n"); nb3=nb3+1;
         }
     }
     do
     {
-    printf("si vous voulez jouer une autre partie entrez 1\n");
-    printf("si vous voulez afficher le resultat entrez 2\n");
-    printf("si vous voulez quitter entrez 3\n");
+    printf("if you want to play again type 1\n");
+    printf("if you want to see the results type 2\n");
+    printf("if you want to exit type 3\n");
     scanf("%d", &z);
     switch (z)
     {
-        case 2: printf("%d matchs gagnés par %s", nb1, nom1); printf("%d matchs gagnés par %s", nb2, nom2); printf("%d matchs nuls\n\n", nb3); break;
+        case 2: printf("%d wins by %s", nb1, nom1); printf("%d wins by %s", nb2, nom2); printf("%d draws\n\n", nb3); break;
         case 3: exit(0); break;
     }
     }while(z!=1); if ((nb1+nb2+nb3)%2==1) p=-1;
